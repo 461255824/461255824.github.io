@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-18T11:25:22.763Z</updated>
+  <updated>2017-02-18T12:31:38.075Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新建hexo个博客</title>
+    <link href="http://yoursite.com/2017/02/18/markuphexo/"/>
+    <id>http://yoursite.com/2017/02/18/markuphexo/</id>
+    <published>2017-02-18T12:30:18.401Z</published>
+    <updated>2017-02-18T12:31:38.075Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="如何搭建自己的hexo博客"><a href="#如何搭建自己的hexo博客" class="headerlink" title="如何搭建自己的hexo博客"></a>如何搭建自己的hexo博客</h2><p>分为两步：1.现在本地生成 2.上传到github服务器 生成静态博客</p>
+<ol>
+<li>首先得安装好npm<a id="more"></a></li>
+<li><p>用npm安装hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
+</li>
+<li><p>选择你要新建博客的文件夹 初始化hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init .   //.代表全部</div></pre></td></tr></table></figure>
+</li>
+<li><p>去网上下载主题，也可以使用自带的<br>怎么下载主题？<br><a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
+<ul>
+<li>挑选好看的主题</li>
+</ul>
+<ul>
+<li>点击blog进入博主的github主页 找项目它的项目文件</li>
+</ul>
+<ul>
+<li>clone到本地进行配置文件</li>
+</ul>
+</li>
+<li><p>文件配置<br>根据博主的readme进行配置，每个可能都不一样</p>
+<ul>
+<li>主文件夹是自己的.yml  里面有各种设置</li>
+<li>source资源文件夹中有样式和需要上传的markdown文件</li>
+</ul>
+</li>
+<li><p>hexo使用主题的原理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
+<p>hexo执行代码hexo server –&gt;利用你blog中的souce资源 和 theme中的样式资源 根据配置单的要求<br>生成相应的html代码在public中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="github如何搭建博客"><a href="#github如何搭建博客" class="headerlink" title="github如何搭建博客"></a>github如何搭建博客</h3><ol>
+<li><p>首先新建一个仓库 为了能方便的调用blog这个仓库有一个默认的名字<br>用户名.github.io</p>
+</li>
+<li><p>将生成的静态页面上传到这个仓库中就可以使用<br>用户名.github.io 进行访问</p>
+</li>
+<li><p>markdown的小技巧 预览代码<br>在markdown中插入 &lt;iframe&gt;标签<br>在利用htmlpreview.github.io中的方法可以 在markdown中预览</p>
+</li>
+<li>githup htmlpreview预览<br>为了使能调用js 需要在项目中开启分支<ul>
+<li>setting</li>
+<li>options</li>
+<li>source</li>
+<li>开启一个分支 save</li>
+<li>你将得到一个url <a href="https://用户名.githup.io/仓库名/这里写你要预览的文件" target="_blank" rel="external">https://用户名.githup.io/仓库名/这里写你要预览的文件</a></li>
+<li>挑转到预览页面</li>
+</ul>
+</li>
+</ol>
+<h5 id="跳转链接"><a href="#跳转链接" class="headerlink" title="跳转链接"></a>跳转链接</h5><p>  <a href="http://htmlpreview.github.io/" target="_blank" rel="external">htmlpreview</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;如何搭建自己的hexo博客&quot;&gt;&lt;a href=&quot;#如何搭建自己的hexo博客&quot; class=&quot;headerlink&quot; title=&quot;如何搭建自己的hexo博客&quot;&gt;&lt;/a&gt;如何搭建自己的hexo博客&lt;/h2&gt;&lt;p&gt;分为两步：1.现在本地生成 2.上传到github服务器 生成静态博客&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先得安装好npm
+    
+    </summary>
+    
+      <category term="插件" scheme="http://yoursite.com/categories/%E6%8F%92%E4%BB%B6/"/>
+    
+    
+      <category term="杂文" scheme="http://yoursite.com/tags/%E6%9D%82%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>canvas绘制星空z轴</title>
