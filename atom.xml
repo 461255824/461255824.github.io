@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-18T09:03:54.884Z</updated>
+  <updated>2017-02-18T11:25:22.763Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>canvas绘制星空z轴</title>
+    <link href="http://yoursite.com/2017/02/18/start/"/>
+    <id>http://yoursite.com/2017/02/18/start/</id>
+    <published>2017-02-18T11:22:00.623Z</published>
+    <updated>2017-02-18T11:25:22.763Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="星空demo"><a href="#星空demo" class="headerlink" title="星空demo"></a>星空demo</h1><ul>
+<li>主要用到了canvas</li>
+<li>x,y,z轴</li>
+</ul>
+<iframe width="100%" scrolling="no" height="400px" frameborder="0" src="https://461255824.github.io/demo/canvasstar.html"></iframe>
+
+<h3 id="详细代码"><a href="#详细代码" class="headerlink" title="详细代码"></a>详细代码</h3><p>请转到我的主页<a href="https://github.com/461255824/demo/blob/master/canvasweiba.html" target="_blank" rel="external">guihub</a><br><a id="more"></a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;星空demo&quot;&gt;&lt;a href=&quot;#星空demo&quot; class=&quot;headerlink&quot; title=&quot;星空demo&quot;&gt;&lt;/a&gt;星空demo&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;主要用到了canvas&lt;/li&gt;
+&lt;li&gt;x,y,z轴&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe width=&quot;100%&quot; scrolling=&quot;no&quot; height=&quot;400px&quot; frameborder= &quot;0&quot; src=&quot;https://461255824.github.io/demo/canvasstar.html&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;详细代码&quot;&gt;&lt;a href=&quot;#详细代码&quot; class=&quot;headerlink&quot; title=&quot;详细代码&quot;&gt;&lt;/a&gt;详细代码&lt;/h3&gt;&lt;p&gt;请转到我的主页&lt;a href=&quot;https://github.com/461255824/demo/blob/master/canvasweiba.html&quot;&gt;guihub&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="demo" scheme="http://yoursite.com/categories/demo/"/>
+    
+    
+      <category term="canvas" scheme="http://yoursite.com/tags/canvas/"/>
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>gulp操作</title>
