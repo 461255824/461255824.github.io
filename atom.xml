@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Mr yang</title>
+  <subtitle>Mr yang</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-02-18T09:03:54.884Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>yang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gulp操作</title>
+    <link href="http://yoursite.com/2017/02/18/gulp%E6%93%8D%E4%BD%9C/"/>
+    <id>http://yoursite.com/2017/02/18/gulp操作/</id>
+    <published>2017-02-18T06:54:39.349Z</published>
+    <updated>2017-02-18T09:03:54.884Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="gulp操作"><a href="#gulp操作" class="headerlink" title="gulp操作"></a>gulp操作</h2><h3 id="gulp是用来压缩合并代码的"><a href="#gulp是用来压缩合并代码的" class="headerlink" title="gulp是用来压缩合并代码的"></a>gulp是用来压缩合并代码的</h3><p>1.npm 全局安装gulp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-cli -g</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>2.找到要压缩代码的文件夹</p>
+<p>（1）首先初始化npm工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init -y</div></pre></td></tr></table></figure></p>
+<p>会生成一个package.json的安装文件<br>（2）安装gulp文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp --save--dev</div></pre></td></tr></table></figure></p>
+<p>–save<br>表示要将文件存到dependencies 项目使用依赖的插件<br>–save–dev<br>表示要将文件存到devDependencies 开发时依赖的插件</p>
+<h3 id="文件使用gulp压缩时需要的其他插件"><a href="#文件使用gulp压缩时需要的其他插件" class="headerlink" title="文件使用gulp压缩时需要的其他插件"></a>文件使用gulp压缩时需要的其他插件</h3><p>1.html压缩<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-htmlmin --save--dev</div></pre></td></tr></table></figure></p>
+<p>2.css压缩<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-cssnano --save--dev</div></pre></td></tr></table></figure></p>
+<p>3.js压缩<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-uglify --save--dev</div></pre></td></tr></table></figure></p>
+<p>4.文件合并<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-concat --save--dev</div></pre></td></tr></table></figure></p>
+<p>###gulp执行需要的js代码<br>1.新建gulpfile.js 代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//js引入gulp对象</div><div class="line">var gulp = require(&quot;gulp&quot;);</div><div class="line">*注：引入的对象要加引号；</div><div class="line">//引入其他需要的插件对象</div><div class="line">var htmlmin = require(&quot;gulp-htmlmin&quot;);</div><div class="line">var cssnano = require(&quot;gulp-cssnano&quot;);</div><div class="line">var uglify = require(&quot;gulp-uglify&quot;);</div><div class="line">var concat = require(&quot;gulp-concat&quot;);</div><div class="line">var rename = rqurie(&quot;gulp-rename&quot;);//rename是一个插件</div></pre></td></tr></table></figure></p>
+<p>2.执行任务代码</p>
+<ul>
+<li>gulp通过执行任务进行操作 任务顺序：gulp.task –&gt; gulp.src–&gt; gulp.dest –&gt;gulp.watch<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//新建一个task任务压缩js代码</div><div class="line">gulp.task(&quot;任务名&quot;,function()&#123;</div><div class="line">    gulp.src([&quot;需要压缩的文件相对路径&quot;])//如果是多个使用数组</div><div class="line">    .pipe(uglify())//gulp是通过管道pipe进行流通的</div><div class="line">    .pipe(rename(&apos;新的名字&apos;))//重命名一般是    名字.min.js</div><div class="line">    .pipe(gulp.dest(&quot;压缩后文件要存的位置&quot;))</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>3.合并两及多个文件concat();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task(&quot;合并任务&quot;,function()&#123;</div><div class="line">    gulp.src([&apos;文件路径文件1&apos;,&apos;文件2&apos;])</div><div class="line">    .pipe(concat(&apos;生成的文件路径及名称&apos;))</div><div class="line">    .pipe(gulp.dest(&quot;压缩后文件要存的位置&quot;))</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>4.压缩html文件<br>html文件中肯能含有css和js所以是应该是判读最多的 需要传入参数对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;htmlmin&apos;, function () &#123;</div><div class="line">//如果需要去除多个参数 可以先声明变量 便于整洁</div><div class="line">    var options = &#123;</div><div class="line">        removeComments: true,//清除HTML注释</div><div class="line">        collapseWhitespace: true,//压缩HTML</div><div class="line">        collapseBooleanAttributes: true,//省略布尔属性的值 &lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</div><div class="line">        removeEmptyAttributes: true,//删除所有空格作属性值 &lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</div><div class="line">        removeScriptTypeAttributes: true,//删除&lt;script&gt;的type=&quot;text/javascript&quot;</div><div class="line">        removeStyleLinkTypeAttributes: true,//删除&lt;style&gt;和&lt;link&gt;的type=&quot;text/css&quot;</div><div class="line">        minifyJS: true,//压缩页面JS</div><div class="line">        minifyCSS: true//压缩页面CSS</div><div class="line">    &#125;;</div><div class="line">    gulp.src(&apos;src/html/*.html&apos;)   //找到文件下所有以.html结尾的文件</div><div class="line">        .pipe(htmlmin(options))</div><div class="line">        .pipe(gulp.dest(&apos;dist/html&apos;));  //默认压缩后的文件都放到dist文件下</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>5.wactch任务可以配合browser-sync一起使用</p>
+<ul>
+<li>就是当监视下文件发生改变的时候 browser也进行显示已保证压缩的文件没有问题<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//全局安装borowsync</div><div class="line">npm install browser-sync -g</div><div class="line"></div><div class="line">//启动browser服务</div><div class="line">browsync start --server --files &quot;文件相对路径&quot;;</div><div class="line">注：browsync启动的当前目录一定要含有index.html文件 要不然启动不了</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>browser-sync和wacth没有必然的练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gulp.task(&quot;mywacht&quot;,function()&#123;</div><div class="line">    gulp.watch([&apos;文件名1&apos;,&apos;文件名2&apos;],[&apos;任务名1&apos;,&apos;任务名2&apos;]);</div><div class="line">&#125;)</div><div class="line">//当文件名1或者2的内容改变的时候执行任务1,2；</div></pre></td></tr></table></figure></p>
+<p>6.利用gulp合并图片成雪碧图<br>原理：是将css文件中用到的图片合并成一张，并改变css文件中图片的引入路径<br>(1)安装插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-spriter --save--dev</div></pre></td></tr></table></figure></p>
+<p>(2)js代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//引入对象</div><div class="line">var spriter = gulp.require(&quot;gulp-spriter&quot;);</div><div class="line">//新建任务代码</div><div class="line">gulp.task(&quot;spriter&quot;,function()&#123;</div><div class="line">    gulp.src(&quot;文件名.css&quot;)</div><div class="line">    .pipe(spriter(&#123;</div><div class="line">        spriter:&apos;合并后的图片名.png&apos;,</div><div class="line">        slice:&apos;./原来的图片所在的文件夹&apos;,</div><div class="line">        outpath:&apos;合并后图片保存的文件夹&apos;</div><div class="line">    &#125;))</div><div class="line">    .pipe(gulp.dest(&quot;css文件保存的路径&quot;))</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><p>API:<br>task (创建任务)<br>src (选择路径)<br>dest (输出路径)<br>watch (监视文件及执行任务)<br>rename (重命名文件)<br>require (引入插件对象)<br>pipe (管道)</p>
+</li>
+<li><p>插件：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>常用插件</th>
+<th style="text-align:right">不常用插件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uglify (压缩js)</td>
+<td style="text-align:right">imgmin</td>
+</tr>
+<tr>
+<td>concat (合并文件)</td>
+<td style="text-align:right">jshint</td>
+</tr>
+<tr>
+<td>cssnano (压缩css)</td>
+<td style="text-align:right">eslint</td>
+</tr>
+<tr>
+<td>htmlmin (压缩html)</td>
+<td style="text-align:right">sourcemap</td>
+</tr>
+<tr>
+<td>spriter (合并雪碧图)</td>
+<td style="text-align:right">gulp-less</td>
+</tr>
+<tr>
+<td>gulp-rename(重命名)</td>
+<td style="text-align:right">gulp-if</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:right">gulp-jsonminify</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:right">gulp-load-plugins</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:right">gulp-eslint</td>
+</tr>
+</tbody>
+</table>
+<p>注：跳转<a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">gulp中文官网</a>;</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;gulp操作&quot;&gt;&lt;a href=&quot;#gulp操作&quot; class=&quot;headerlink&quot; title=&quot;gulp操作&quot;&gt;&lt;/a&gt;gulp操作&lt;/h2&gt;&lt;h3 id=&quot;gulp是用来压缩合并代码的&quot;&gt;&lt;a href=&quot;#gulp是用来压缩合并代码的&quot; class=&quot;headerlink&quot; title=&quot;gulp是用来压缩合并代码的&quot;&gt;&lt;/a&gt;gulp是用来压缩合并代码的&lt;/h3&gt;&lt;p&gt;1.npm 全局安装gulp&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install gulp-cli -g&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="插件使用" scheme="http://yoursite.com/categories/%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+    
+      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>引言</title>
+    <link href="http://yoursite.com/2017/02/18/ReadMe/"/>
+    <id>http://yoursite.com/2017/02/18/ReadMe/</id>
+    <published>2017-02-18T04:46:25.000Z</published>
+    <updated>2017-02-18T08:58:57.341Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>路漫漫其修远兮，吾将上下而求索<br>这里的笔记用于记录学习中的心得<br><a id="more"></a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;路漫漫其修远兮，吾将上下而求索&lt;br&gt;这里的笔记用于记录学习中的心得&lt;br&gt;
+    
+    </summary>
+    
+      <category term="引言：" scheme="http://yoursite.com/categories/%E5%BC%95%E8%A8%80%EF%BC%9A/"/>
+    
+    
+      <category term="引言" scheme="http://yoursite.com/tags/%E5%BC%95%E8%A8%80/"/>
+    
+  </entry>
+  
+</feed>
