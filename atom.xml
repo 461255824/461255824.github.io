@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-18T12:31:38.075Z</updated>
+  <updated>2017-02-19T14:08:19.061Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,178 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>angular初始</title>
+    <link href="http://yoursite.com/2017/02/19/agl/"/>
+    <id>http://yoursite.com/2017/02/19/agl/</id>
+    <published>2017-02-19T13:43:56.987Z</published>
+    <updated>2017-02-19T14:08:19.061Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="angular学习笔记"><a href="#angular学习笔记" class="headerlink" title="angular学习笔记"></a>angular学习笔记</h2><h3 id="angular是一个框架"><a href="#angular是一个框架" class="headerlink" title="angular是一个框架"></a>angular是一个框架</h3><ul>
+<li>什么是框架？</li>
+<li>和jquery有什么区别？</li>
+<li>为什么要学习这个框架？</li>
+<li>这个框架有哪些优点和缺点？</li>
+<li>有哪些网站使用到了angular?<a id="more"></a>
+</li>
+</ul>
+<h2 id="angular-是一个MV-类型的框架"><a href="#angular-是一个MV-类型的框架" class="headerlink" title="angular 是一个MV*类型的框架"></a>angular 是一个MV*类型的框架</h2><ul>
+<li>特点是数据双向绑定 和依赖注入</li>
+</ul>
+<h3 id="angular的使用"><a href="#angular的使用" class="headerlink" title="angular的使用"></a>angular的使用</h3><ol>
+<li><p>首先是npm下包 之后引入到项目中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm init -y</div><div class="line">npm install angular --save</div><div class="line">&lt; script=angular的路径 &gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>angular使用基本方法<br>（1）用angular创建一模块<br>（2）模块挂在一个控制器<br>（3）控制器中添加数据模型 中的变量和方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&quot;myApp&quot;,[]);   //这里的[]数组可以引入其他第三方的模块</div><div class="line">    app.controller(&quot;myController&quot;,[&apos;$scope&apos;,function($scope)&#123;</div><div class="line">        $scope.name = &quot;小明&quot;;  //这里基本上等于初始化了；</div><div class="line">        $scope.fn = function()&#123;&#125;;</div><div class="line">    &#125;]);</div></pre></td></tr></table></figure>
+</li>
+<li><p>angular指令和表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng-model --&gt; 指令    &#123;&#123;name&#125;&#125; --&gt; 表达式</div></pre></td></tr></table></figure>
+</li>
+<li><p>ng指令的API</p>
+</li>
+</ol>
+<ul>
+<li>ng-model –&gt; 跟input中的数据挂钩</li>
+<li>ng-bind  –&gt; 跟双标签的内容联系 并且不会出现闪烁的问题</li>
+<li>ng-bind-html –&gt; 需要引入第三方插件sanitize将标签内容转为字符串</li>
+<li>ng-click –&gt; 点击触发函数 可以传入$event事件对象<br>ng-click = fn($event);</li>
+<li>ng-repeat = “item in data track by $index “–&gt;  循环当前的标签  并且按照$scope中$index的值0,1,2,3,4…</li>
+</ul>
+<h2 id="流行框架第三天"><a href="#流行框架第三天" class="headerlink" title="流行框架第三天"></a>流行框架第三天</h2><h3 id="复习指令"><a href="#复习指令" class="headerlink" title="复习指令"></a>复习指令</h3><ol>
+<li>ng-app:是程序入口，宣告angular的管理范围</li>
+<li>ng-click:注册一个点击事件</li>
+<li>ng-model:双向数据绑定</li>
+<li>ng-init:初始化数据模型</li>
+<li>ng-controller:指定我们使用哪一个控制器</li>
+<li>ng-bind:也是用来绑定数据模型的值，注意必须在双标签中使用</li>
+<li>ng-cloak:利用了angular会移除掉样式名为ng-cloak的样式的特性</li>
+<li>ng-bind-html:就是用来安全渲染我们的html，注意必须和ngSanitize连用</li>
+<li>ng-repeat:用来渲染数据列表（数组/对象）中的数据，ng- repeat=”item in data track by $index”</li>
+<li><p>ng-class:操作样式，一种是在多种样式中选择一种样式<br>ng-class=”{‘A’:’red’,’B’:’blue’,’C’:’green’}[item.salary]”<br>还有一种是在多种样式中选择多种样式<br>“{‘red’:false,’fontColor’:true,’green’:true}”</p>
+</li>
+<li><p>ng-hide/ng-show:隐藏或者显示我们的元素，这对指令是利用display:none</p>
+</li>
+<li>ng-if/ng-switch ng-switch-when</li>
+</ol>
+<h3 id="angular第五天"><a href="#angular第五天" class="headerlink" title="angular第五天"></a>angular第五天</h3><h3 id="自定义指令简单介绍及使用"><a href="#自定义指令简单介绍及使用" class="headerlink" title="自定义指令简单介绍及使用"></a>自定义指令简单介绍及使用</h3><ul>
+<li>自定义指令无外乎增强了HTML,提供了额外的功能。</li>
+<li>内部指令基本能满足我们的需求。</li>
+<li><p>少数情况下我们有一些特殊的需要，可以通过自定义指令的方式实现：</p>
+</li>
+<li><p>通过 模块对象的directive方法创建</p>
+<ul>
+<li>有两个参数，第一个参数，是指令的名字：必须是驼峰命名法命名<pre><code>第二个参数和控制器的第二个参数一样,在第二个参数的function里直接返回的一个obj对象
+</code></pre></li>
+<li>使用时：需要将指令的名字转成小写，并以-分割原先在大小写字母<h3 id="自定义指令中回函数里返回的对象的属性"><a href="#自定义指令中回函数里返回的对象的属性" class="headerlink" title="自定义指令中回函数里返回的对象的属性"></a>自定义指令中回函数里返回的对象的属性</h3></li>
+</ul>
+</li>
+<li>template:需要一个字符串，最终这个字符串值被被添加到自定义指令所在标签的innerHTML位置</li>
+<li><p>templateUrl:需要一个字符串，这个字符串是一个文本文件的路径,anuglar最终会异步请求这个文件，把拿到的内容插入到自定义指令所在的标签的innerHTML位置,<br>该字符串也可以是script标签的id值，把script标签中的内容当作模板字符串来使用<br>注意：script的type属性需要为”text/ng-template”</p>
+</li>
+<li><p>restrict:也是需要一个字符，可以是A,E,C,M 这4个字符中任何一个，也可以任意的组合，A:以属性的形式使用，E:以自定义标签的形式使用，C:表示以类样式名的形式使用，M:以注释的形式使用</p>
+</li>
+<li><p>replace: 需要一个布尔值，为true,会将自定义指令所在的标签替换为模板字符串。</p>
+</li>
+<li><p>transclude:转置，是需要一个布尔值，为true时会把自定义指令所在标签的innerHTML值添加到模板字符串中，需要与ng-transclude指令配合使用，ng-transclude指令需要将值插入到哪个元素的innerHTML位置.不能与replace指令同用。</p>
+</li>
+<li><p>scope:需要一个对象，可以获取到自定义指令所在标签的属性值：<br> {</p>
+<pre><code>属性名:&apos;@test&apos;, 属性值需要以@开头,@后面是自定义指令所在标签的属性名，最终在模板字符串中通过表达式可以使用scope的属性名可以直接输出
+
+test:&apos;@&apos;// 是简写方式
+</code></pre><p> }</p>
+</li>
+<li>link:指向一个function，这个function有三个参数：<ul>
+<li>scope: 类似于控制器中的$scope,也可以暴露一些值。</li>
+<li>element:这是一个jqLite对象，是自定义指令所在标签的jqLite对象</li>
+<li>attributes:是自定义指令所在标签的所以属性的集合.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">body ng-app = &quot;myApp&quot;</div><div class="line">        &lt;div my-order&gt;</div><div class="line">                这是原来的内容</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;script type=&quot;text/ng-template&quot; id=&quot;tem&quot;&gt;</div><div class="line">        &lt;div ng-transclude&gt;</div><div class="line">            这是script创建的div</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div&gt;</div><div class="line">            这个是创建的 没加ng-transclude</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//创建模块</div><div class="line">    var app = angular.module(&quot;myApp&quot;,[]);//--&gt;这里可以传入第三方插件</div><div class="line">        //自定义指令</div><div class="line"></div><div class="line">        app.directive(&apos;myOrder&apos;,function()&#123;          // --&gt;自定义指令第二个参数是函数并且返回一个对象，这个对象包含了模板等信息，命名规则是驼峰命名  在html标签中自动转为小写为my-app;</div><div class="line">            return &#123;</div><div class="line">                //template:&apos;&lt;div&gt;这是一个div&lt;/div&gt;&apos;,    //template --&gt; 可以是字符串拼接成</div><div class="line">                //templateUrl:&apos;./view.html&apos;           //templateUrl --&gt; 可以是相当于与发送ajax请求</div><div class="line">                templateUrl:&quot;tem&quot;,               //templateUrl --&gt;也可以是由stcript创建的模板 主模块一定要子啊body里</div><div class="line">                restrict:&quot;AEMC&quot;,    //A--&gt;attribute Eelement M--&gt;注释 C--&gt;class</div><div class="line">                link:function(scope,element,attr) &#123;</div><div class="line">                    //这里可以直接用创建出来的元素使用</div><div class="line">                &#125;,</div><div class="line">                transclude:true</div><div class="line">                //replace:true   //--&gt;这个会替换注释中的内用</div><div class="line"></div><div class="line">            &#125;;</div><div class="line">        &#125;)</div></pre></td></tr></table></figure>
+<h2 id="todomvc案例"><a href="#todomvc案例" class="headerlink" title="todomvc案例"></a>todomvc案例</h2><h3 id="todomvc-简单介绍"><a href="#todomvc-简单介绍" class="headerlink" title="todomvc 简单介绍"></a>todomvc 简单介绍</h3><h3 id="todomvc-功能分析"><a href="#todomvc-功能分析" class="headerlink" title="todomvc 功能分析"></a>todomvc 功能分析</h3><ol>
+<li>显示数据列表</li>
+<li><p>添加任务</p>
+</li>
+<li><p>删除任务</p>
+<ul>
+<li>使用了数组的splice</li>
+</ul>
+</li>
+<li><p>修改任务</p>
+</li>
+</ol>
+<ul>
+<li>只是改变页面是否可以编辑的一个状态</li>
+</ul>
+<ol>
+<li><p>切换是任务是否完成的状态</p>
+</li>
+<li><p>批量的切换任务是否完成的状态</p>
+<ul>
+<li>使用了ng-change事件</li>
+</ul>
+</li>
+<li><p>清除已完成任务</p>
+</li>
+</ol>
+<ul>
+<li>尽量不要在循环中添加或删除数组元素。</li>
+</ul>
+<ol>
+<li><p>1 控制清除已完成任务按钮的显示与否</p>
+</li>
+<li><p>显示未完成的任务数</p>
+</li>
+</ol>
+<ul>
+<li>是给ng-bind指定一个方法,方法最终会返回一个具体的值,</li>
+<li>ng-bind 会把这个值渲染到页面。</li>
+</ul>
+<ol>
+<li>切换不同状态任务的显示与否</li>
+</ol>
+<h2 id="过滤器-filter"><a href="#过滤器-filter" class="headerlink" title="过滤器(filter)"></a>过滤器(filter)</h2><h3 id="格式化数据的过滤器"><a href="#格式化数据的过滤器" class="headerlink" title="格式化数据的过滤器"></a>格式化数据的过滤器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">-  currency 将数字转成货币的形式显示</div><div class="line">&gt;&lt;!-- 语法在数据模型后面加上 |currency</div><div class="line">        参数，通过冒号:的方式传递--&gt;</div><div class="line">    &lt;p&gt;&#123;&#123;money | currency :&apos;￥&apos; &#125;&#125;&lt;/p&gt;</div><div class="line"></div><div class="line">-  date 将整数形式的日期转换为用户能够识别的形式;</div><div class="line">&gt;&lt;!-- 语法在数据模型后面加上 |currency</div><div class="line">        参数，通过冒号:的方式传递--&gt;</div><div class="line">    &lt;p&gt;&#123;&#123;money | currency :&apos;￥&apos; &#125;&#125;&lt;/p&gt;</div><div class="line"></div><div class="line">-  limitTo 是控制字符串显示的长度</div><div class="line">    + 有两个参数，第一个表示需要显示长度</div><div class="line">                第二个表示从哪个索引开始显示</div><div class="line"></div><div class="line">-  orderBy,需要一个字符串作为参数：这个字符就是数组中元素的一个属性名</div><div class="line">    ,默认是按升序排列的，如果给这个字符前加上一个-号表示降序排列.</div><div class="line"></div><div class="line">-  json</div><div class="line"></div><div class="line">-  在js中使用过滤器的方式</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">javascript</div><div class="line">    // $filter其实是个方法</div><div class="line">           // 第一个参数:就是过滤器的名字</div><div class="line">           // 会返回一个方法</div><div class="line">           //               + 至少有一个参数(就是使用到的数据)</div><div class="line">           //               + 其他的参数依次是过滤器所使用到的参数</div><div class="line">           var tmp = $filter(&apos;date&apos;)($scope.myDate,&apos;yyyy年MM月-dd日 HH:mm:ss&apos;)</div><div class="line">           $scope.tmp=tmp;</div></pre></td></tr></table></figure>
+<ul>
+<li>1234588910120</li>
+<li>1234567891011</li>
+</ul>
+<h3 id="过滤数据的过滤器"><a href="#过滤数据的过滤器" class="headerlink" title="过滤数据的过滤器"></a>过滤数据的过滤器</h3><ul>
+<li>filter</li>
+<li>一般是与ng-repeat指令共同使用</li>
+<li>参数：可以是一个普通类型-angular会对这样的参数进行全局匹配;<pre><code>也可以是一个object对象-angular就会根据对象中的属性及属性值去数据中的每一个元素中寻找相应的属性，当前属性值相等的时候数据就会被显示。
+</code></pre></li>
+</ul>
+<p>filter过滤器 –&gt; service服务 –&gt; 路由ngRoute<br>–&gt; ng-repeat=”item in arr | filter: {isCompleted:true,false,undefined,true,false}”<br>–&gt; $scope.location = $location $watch只能监视$scope里面的模型数据 –&gt;  $scope.$watch(‘location.url()’)监视我们的hash<br>–&gt; 把控制器提出来 –&gt; 把一些涉及到数据相关的东西放到service服务里面(angular只能做到双向数据绑定，不负责让localStorage里面的数据自动更新 –&gt; $watch监视tasks的变量 –&gt; Todos.save() )<br>–&gt; ngRoute<br>    –&gt; $routeProvider<br>    –&gt; $routeParams<br>    –&gt; $route.updateParams</p>
+<ol>
+<li>第一天课程下载<br><a href="https://github.com/black-pony/angular_day01" target="_blank" rel="external">通过git下载</a><br><a href="https://www.npmjs.com/package/angular-day01" target="_blank" rel="external">通过npm下载</a></li>
+<li>第二天课程下载<br><a href="https://github.com/black-pony/angular-day02" target="_blank" rel="external">通过git下载</a><br><a href="https://www.npmjs.com/package/angular-day02" target="_blank" rel="external">通过npm下载</a></li>
+<li>第三天课程下载<br><a href="https://github.com/black-pony/angular-day03" target="_blank" rel="external">通过git下载</a><br><a href="https://www.npmjs.com/package/angular-day03" target="_blank" rel="external">通过npm下载</a></li>
+<li>第四、五天课程下载<br><a href="https://github.com/black-pony/angular-day04-05" target="_blank" rel="external">通过git下载</a><br><a href="https://www.npmjs.com/package/angular-day04-day-5" target="_blank" rel="external">通过npm下载</a></li>
+</ol>
+<p>angular 是一个MVVM/MVC框架<br>我们是通过改变数据模型 就可以同步的改变视图中的数据的项数</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;angular学习笔记&quot;&gt;&lt;a href=&quot;#angular学习笔记&quot; class=&quot;headerlink&quot; title=&quot;angular学习笔记&quot;&gt;&lt;/a&gt;angular学习笔记&lt;/h2&gt;&lt;h3 id=&quot;angular是一个框架&quot;&gt;&lt;a href=&quot;#angular是一个框架&quot; class=&quot;headerlink&quot; title=&quot;angular是一个框架&quot;&gt;&lt;/a&gt;angular是一个框架&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;什么是框架？&lt;/li&gt;
+&lt;li&gt;和jquery有什么区别？&lt;/li&gt;
+&lt;li&gt;为什么要学习这个框架？&lt;/li&gt;
+&lt;li&gt;这个框架有哪些优点和缺点？&lt;/li&gt;
+&lt;li&gt;有哪些网站使用到了angular?
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="框架" scheme="http://yoursite.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>新建hexo个博客</title>
@@ -131,7 +303,7 @@
     <link href="http://yoursite.com/2017/02/18/gulp%E6%93%8D%E4%BD%9C/"/>
     <id>http://yoursite.com/2017/02/18/gulp操作/</id>
     <published>2017-02-18T06:54:39.349Z</published>
-    <updated>2017-02-18T09:03:54.884Z</updated>
+    <updated>2017-02-19T14:11:49.648Z</updated>
     
     <content type="html"><![CDATA[<h2 id="gulp操作"><a href="#gulp操作" class="headerlink" title="gulp操作"></a>gulp操作</h2><h3 id="gulp是用来压缩合并代码的"><a href="#gulp是用来压缩合并代码的" class="headerlink" title="gulp是用来压缩合并代码的"></a>gulp是用来压缩合并代码的</h3><p>1.npm 全局安装gulp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-cli -g</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
@@ -220,7 +392,7 @@
     
     </summary>
     
-      <category term="插件使用" scheme="http://yoursite.com/categories/%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+      <category term="插件" scheme="http://yoursite.com/categories/%E6%8F%92%E4%BB%B6/"/>
     
     
       <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
