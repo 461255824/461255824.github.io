@@ -7,19 +7,23 @@
 
     
 
-    <title>关于 | Mr yang</title>
+    <title>angular路由小结 | Mr yang</title>
     <meta name="author" content="yang">
     
-    <meta name="description" content="大家好，我是杨启岩。欢迎来到我的个人技术博客。
-路漫漫其修远兮
-从什么都不懂到懂一点，再回到什么都不懂；技术的更迭真是让人感到脑子不够用啊
-保持空杯心态；
-努力搬砖；">
+    <meta name="description" content="angular 路由
+angular路由是什么
+使用方法
+
+angular路由是用来模块化的
+首先angular是为单页面应用而生的一个框架
+为了做到单页面应用，它采用里改变url中的锚点值来告诉页面我要改变了
+为了不跳转页面，采用的是a标签的锚点 实际上改变的就是hash值
+路由route就是用来监控 url的改变 拿到改变的值  去请求生成不同的页面数据 和创造不同的controller来渲染不同的页面">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="关于"/>
+    <meta property="og:title" content="angular路由小结"/>
     <meta property="og:site_name" content="Mr yang"/>
 
     
@@ -236,328 +240,97 @@
 
 
     <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
         
-
-
-<div class="container main-container">
-    <div class="card about-page row">
-        <div class="header indigo">
-            <div class="avatar-wrapper center-align">
-                <img class="avatar-image circle responsive-img" src="http://p1.bpimg.com/567571/c7dba0a3cc8d42ec.jpg" alt="User Avatar">
-            </div>
-            <div class="info center-align">
-                <p class="name">yang</p>
-                <p class="desc">前端新人一枚，半路出家请多指教</p>
-            </div>
-
             
-                <div class="social-group center-align">
-                    
-                        <a class="social-link" href="https://github.com/461255824" target="_blank">
-                            <i class="fa fa-2x fa-weibo"></i>
-                        </a>
-                    
-                        <a class="social-link" href="https://github.com/461255824" target="_blank">
-                            <i class="fa fa-2x fa-github"></i>
-                        </a>
-                    
-                        <a class="social-link" href="/atom.xml" target="_blank">
-                            <i class="fa fa-2x fa-rss"></i>
-                        </a>
-                    
-                </div>
-            
-        </div>
-
-        <article>
-            <div class="card-content">
-                <section class="about-me">
-                    <h1 class="indigo-text">
-                        <i class="fa fa-street-view"></i>关于</h1>
-                    <div class="entry pink-link-context">
-                        <p>大家好，我是杨启岩。欢迎来到我的个人技术博客。</p>
-<h2 id="路漫漫其修远兮"><a href="#路漫漫其修远兮" class="headerlink" title="路漫漫其修远兮"></a>路漫漫其修远兮</h2><ul>
-<li>从什么都不懂到懂一点，再回到什么都不懂；技术的更迭真是让人感到脑子不够用啊</li>
-<li>保持空杯心态；</li>
-<li>努力搬砖；</li>
-</ul>
-
-                    </div>
-                </section>
-
-                
-                <section class="skills">
-                    <h1 class="indigo-text">
-                        <i class="fa fa-tasks"></i>&nbsp;技能</h1>
-                    <ul class="skill-list">
-                        
-                            
-                                <li class="row">
-                                    <div class="col s4 m3 l2">Javascript</div>
-                                    <div class="col s8 m9 l10">
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                    </div>
-                                </li>
-                            
-                        
-                            
-                                <li class="row">
-                                    <div class="col s4 m3 l2">ccs</div>
-                                    <div class="col s8 m9 l10">
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                    </div>
-                                </li>
-                            
-                        
-                            
-                                <li class="row">
-                                    <div class="col s4 m3 l2">html</div>
-                                    <div class="col s8 m9 l10">
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                    </div>
-                                </li>
-                            
-                        
-                            
-                                <li class="row">
-                                    <div class="col s4 m3 l2">Node.js</div>
-                                    <div class="col s8 m9 l10">
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                            <i class="fa fa-star"></i>
-                                        
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                            <i class="fa fa-star-o"></i>
-                                        
-                                    </div>
-                                </li>
-                            
-                        
-                    </ul>
-                </section>
-                
-
-                
-                <section class="projects">
-                    <h1 class="indigo-text">
-                        <i class="fa fa-cubes"></i>作品与项目</h1>
-                        <div class="row">
-                            
-                                <div class="project-item col m6">
-                                    <div class="">
-                                        <div class="card medium pink-link-context">
-                                            <div class="card-image">
-                                                <img class="card-cover-image" src="https://d13yacurqjgara.cloudfront.net/users/138819/screenshots/2578899/dribbble_800x600_01_1x.png">
-                                                <span class="card-title">慢慢买</span>
-                                                <div class="card-tag">
-                                                    
-                                                        <span class="chip white-text pink lighten-1">2017年</span>
-                                                    
-                                                        <span class="chip white-text pink lighten-1">web商城</span>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="card-content">
-                                                传智博客做的一个内部项目，数据不稳定
-                                            </div>
-                                            <div class="card-action">
-                                                <a class="undefined-text" href="http://htmlpreview.github.io/?https://github.com/461255824/mm/blob/master/index.html" target="_blank">网站链接</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div class="project-item col m6">
-                                    <div class="">
-                                        <div class="card medium pink-link-context">
-                                            <div class="card-image">
-                                                <img class="card-cover-image" src="https://imgsa.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=1b0dc3d30d2442a7ba03f5f7b02ac62e/6159252dd42a2834b1c7cf5b59b5c9ea15cebf79.jpg">
-                                                <span class="card-title">你的作品B</span>
-                                                <div class="card-tag">
-                                                    
-                                                        <span class="chip white-text pink lighten-1">Github</span>
-                                                    
-                                                        <span class="chip white-text pink lighten-1">设计</span>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="card-content">
-                                                你的作品B的简介
-                                            </div>
-                                            <div class="card-action">
-                                                <a class="undefined-text" href="https://github.com/461255824" target="_blank">Github地址</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                        </div>
-                </section>
-                
-
-                
-                <section class="reward">
-                    <!-- Donate Module -->
-<div id="donate_module">
-    <style type="text/css">
-        .hidden {
-            display: none;
-        }
-        .donate_bar a.btn_donate {
-            display: inline-block;
-            width: 82px;
-            height: 82px;
-            background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
-            _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
-
-            -webkit-transition: background 0s;
-            -moz-transition: background 0s;
-            -o-transition: background 0s;
-            -ms-transition: background 0s;
-            transition: background 0s;
-        }
-        .donate_bar a.btn_donate:hover {
-            background-position: 0 -82px;
-        }
-        .donate_bar .donate_txt {
-            display: block;
-            color: #9d9d9d;
-            font: 14px/2 "Microsoft Yahei";
-        }
-        .bold {
-            font-weight: bold;
-        }
-
-        img.qrcode {
-            width: 90%;
-            margin-bottom: 10px;
-        }
-        @media only screen and (min-width: 1025px) {
-            img.qrcode {
-                width: 40%;
-                margin-right: 10px;
-            }
-        }
-
-    </style>
-
-    <!-- btn_donate & tips -->
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
-        <span class="donate_txt">能看到这的都是真爱，打个赏呗=。=</span>
-    </div>
-    <!-- /btn_donate & tips -->
-
-    <!-- donate guide -->
-    <div id="donate_guide" class="donate_bar center hidden">
-        
-        <img class="qrcode" src="https://login.weixin.qq.com/qrcode/IcjCKm9pRg==" title="打赏"/>
-        
-        <img class="qrcode" src="https://login.weixin.qq.com/qrcode/IcjCKm9pRg==" title="打赏"/>
-        
-    </div>
-    <!-- /donate guide -->
-
-    <!-- donate script -->
-    <script type="text/javascript">
-        document.getElementById('btn_donate').onclick = function() {
-            $('#donate_board').addClass('hidden');
-            $('#donate_guide').removeClass('hidden');
-        }
-
-        function donate_on_web() {
-            $('#donate').submit();
-        }
-    </script>
-    <!-- /donate script -->
-</div>
-<!-- /Donate Module -->
-
-                </section>
-                
-            </div>
-        </article>
-    </div>
-
     
+    
+    <a class="breadcrumb" href="/categories/框架/">框架</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>angular路由小结</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2017-02-21T14:54:34.874Z"><a href="/2017/02/21/angular-route/">2017-02-21</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/笔记/" class="chip pink lighten-1">笔记</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#angular-路由"><span class="section table-of-contents-text">angular 路由</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#angular路由是用来模块化的"><span class="section table-of-contents-text">angular路由是用来模块化的</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#路由的使用"><span class="section table-of-contents-text">路由的使用</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h2 id="angular-路由"><a href="#angular-路由" class="headerlink" title="angular 路由"></a>angular 路由</h2><ul>
+<li>angular路由是什么</li>
+<li>使用方法</li>
+</ul>
+<h2 id="angular路由是用来模块化的"><a href="#angular路由是用来模块化的" class="headerlink" title="angular路由是用来模块化的"></a>angular路由是用来模块化的</h2><ul>
+<li>首先angular是为单页面应用而生的一个框架</li>
+<li>为了做到单页面应用，它采用里改变url中的锚点值来告诉页面我要改变了</li>
+<li>为了不跳转页面，采用的是a标签的锚点 实际上改变的就是hash值</li>
+<li>路由route就是用来监控 url的改变 拿到改变的值  去请求生成不同的页面数据 和创造不同的controller来渲染不同的页面<a id="more"></a>
+</li>
+</ul>
+<h2 id="路由的使用"><a href="#路由的使用" class="headerlink" title="路由的使用"></a>路由的使用</h2><ol>
+<li><p>首先需要引入第三方插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install angular-route --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>引用页面之后利用config初始化$routeProvider 对象 用着个对象去管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;myapp&apos;,[ngRoute]) // 第三方插件的名字ngRoute</div><div class="line">    app.config(&apos;$routeProvider&apos;,function($routeProvider)&#123;</div><div class="line">        $routeProvider</div><div class="line">        .when(&apos;/:status?&apos;,&#123;          //这个status可以是固定的  也可以是一个占位符 controller的$routeParams 中可以掉出一个对象  这个对象=&#123;status:&apos;改变的hash值&apos;&#125;</div><div class="line">            template:&apos;&lt;p&gt;标签字符串&lt;/p&gt;&apos;,</div><div class="line">            templateUrl:&apos;一般是固定的&apos;,                     // 请求一个模板=另启一个html&gt;最后渲染到页面中含有ng-view 的innerHTML;</div><div class="line">            controller:&apos;mycontroller&apos;           //指定一个控制器</div><div class="line">        &#125;)</div><div class="line">        .otherwise(&#123;</div><div class="line">        redirectTo:&apos;when都没有时锚点的值&apos;         //只改变url并不会跳转</div><div class="line">        &#125;)</div><div class="line"></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用锚点值的改变 动态获取锚点值 让后去发送ajax请求</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">app.controller(&quot;mycontroller&quot;,[&apos;$scope&apos;,&apos;$http&apos;,&apos;$routeParams&apos;,&apos;$route&apos;],function($scope,$http,$routeParams,$route)&#123;</div><div class="line">    //先渲染页面  然后在发送ajax请求 这里把页面都分号了  所以就只写ajax请求来渲染页面了</div><div class="line">    $http.get(&apos;地址：相对与html&apos;)      //get方法</div><div class="line">    .then(                             //then方法  地址</div><div class="line">    fn(data)&#123;成功的回调函数</div><div class="line">        //data  是一个被封装的对象  真正得到数据是  data.data</div><div class="line">        $scope.data = data.data    //通过这个方式 把数据暴露在controller中</div><div class="line">    &#125;,</div><div class="line">    fn(data)&#123;失败的回调函数&#125;</div><div class="line">    )</div><div class="line"></div><div class="line">    //jsonp请求</div><div class="line">    $http.jsonp(&apos;http://****?callback=JSON_CALLBACK&apos;)     //这里的callback=JSON_CALLBACK固定</div><div class="line">    .then(                             //then方法  地址</div><div class="line">    fn()&#123;成功的回调函数</div><div class="line">        //data  是一个被封装的对象  真正得到数据是  data.data</div><div class="line">        $scope.data = data.data    //通过这个方式 把数据暴露在controller中</div><div class="line">        &#125;,</div><div class="line">    fn()&#123;失败的回调函数&#125;</div><div class="line">    )</div><div class="line"></div><div class="line"></div><div class="line">    //当锚点值没有找到得到时候 可以重新设置 锚点值 到一个特定的地方</div><div class="line">    if($routeParams.status) &#123;</div><div class="line">        $route.updataParams = &apos;/要去的锚点&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+                
+
+
+<p class="pink-link-context">
+    <a href="/2017/02/19/agl/" rel="next" title="angular初始">
+    下一篇：angular初始
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
 
 
 
