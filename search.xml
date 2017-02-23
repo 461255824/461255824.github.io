@@ -4,6 +4,76 @@
   
     
     <entry>
+      <title><![CDATA[seajs和requirejs的用法]]></title>
+      <url>http://yoursite.com/2017/02/23/seajs%E5%92%8Crequirejs/</url>
+      <content type="html"><![CDATA[<h2 id="seajs-requirejs"><a href="#seajs-requirejs" class="headerlink" title="seajs  requirejs"></a>seajs  requirejs</h2><ul>
+<li>这个两个插件是用来做什么的？</li>
+<li>怎么用？</li>
+<li>有没有bug或者坑？</li>
+<li>有没有更好的？<a id="more"></a>
+<h3 id="seajs"><a href="#seajs" class="headerlink" title="seajs"></a>seajs</h3></li>
+<li>这两个插件都是用来管理加载的 主要解决以下两个问题：</li>
+</ul>
+<ol>
+<li>变量空间   通过封装来保证模块内的变量不会污染全局</li>
+<li>减少页面引入的js链接的数量  便于管理</li>
+</ol>
+<ul>
+<li>这两个软件都是用来做模块化的</li>
+<li>模块化的好处<ul>
+<li>提升开发效率</li>
+<li>便于后期维护</li>
+</ul>
+</li>
+<li>常见的模块规范 cmd amd commenjs ECMAscript</li>
+</ul>
+<h3 id="模块化变量方法"><a href="#模块化变量方法" class="headerlink" title="模块化变量方法"></a>模块化变量方法</h3><ul>
+<li>全局变量</li>
+<li>把变量绑定到一个对象身上</li>
+<li>隔离公有私有变量</li>
+</ul>
+<h3 id="seajs-–-gt-cmd-模块-一个模块就是一个文件-define-require-exports-module"><a href="#seajs-–-gt-cmd-模块-一个模块就是一个文件-define-require-exports-module" class="headerlink" title="seajs  –&gt; cmd 模块 一个模块就是一个文件  define require exports module"></a>seajs  –&gt; cmd 模块 一个模块就是一个文件  define require exports module</h3><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">先在主页html中引入sea.js文件</div><div class="line">&lt;script src=&quot;sea.js&quot;&gt;&lt;/script&gt;</div><div class="line">在写一个主标签</div><div class="line">&lt;script&gt;</div><div class="line">    seajs.use(&apos;./main&apos;,function()&#123;</div><div class="line">        //加载后的回调函数</div><div class="line">    &#125;)</div><div class="line">    //也就是去调用主页面  这里路径要注意</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="这里路径要注意"><a href="#这里路径要注意" class="headerlink" title="这里路径要注意"></a>这里路径要注意</h3><ul>
+<li>seajs的路径会默认是主路径  可以不加’.js’后缀</li>
+</ul>
+<h3 id="主js-main-js"><a href="#主js-main-js" class="headerlink" title="主js  main.js"></a>主js  main.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//基本上是一define开始定义一个模块</div><div class="line">define(function(require,exports,module)&#123;</div><div class="line">    //这里用require引入其他模块</div><div class="line">    var foo = require(&apos;下一级路径&apos;)    //路径相对与主 main.js开始  ---&gt;一般返回的是一个对象</div><div class="line">    //这里就可以操作foo在页面中出效果</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="下一级js"><a href="#下一级js" class="headerlink" title="下一级js"></a>下一级js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">define(function(require,exports,module)&#123;</div><div class="line">    function()&#123;&#125;</div><div class="line">    var a...</div><div class="line">    //所有的变量和方法需要别人用的都绑定到一个对象上最后返回出去</div><div class="line"></div><div class="line">    module.exports = &#123;</div><div class="line">        fn:fn,</div><div class="line">        a:a...</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="requirejs用法"><a href="#requirejs用法" class="headerlink" title="requirejs用法"></a>requirejs用法</h3><ul>
+<li>基本上和seajs类型 不过不同在于</li>
+</ul>
+<ol>
+<li><p>它在页面上script中直接指定了主js  在页面上也就只有这一个  预加载 预解析</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script data-main=&quot;scripts/main.js&quot; src=&quot;scripts/require.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>所有主要编写main.js中的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">requirejs([&apos;jquery&apos;,&apos;canvas&apos;],function($,ca)&#123;   ---&gt;这里引入是一个模块对象</div><div class="line">                                                ---&gt;在模块中返回的是一个对象</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>模块写法   模块就是用来返回对象的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">define(function()&#123;</div><div class="line">    return &#123;</div><div class="line">    name:...</div><div class="line">    age:....</div><div class="line">&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="二者的共同点"><a href="#二者的共同点" class="headerlink" title="二者的共同点"></a>二者的共同点</h3><ol>
+<li>都可以配置路径<br>seajs.config({<br>path:’主路径’,<br>})</li>
+<li>都是预加载  但是seajs是懒解析</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 管理工具 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[angular路由小结]]></title>
       <url>http://yoursite.com/2017/02/21/angular-route/</url>
       <content type="html"><![CDATA[<h2 id="angular-路由"><a href="#angular-路由" class="headerlink" title="angular 路由"></a>angular 路由</h2><ul>
@@ -212,7 +282,7 @@ test:&apos;@&apos;// 是简写方式
     <entry>
       <title><![CDATA[新建hexo个博客]]></title>
       <url>http://yoursite.com/2017/02/18/markuphexo/</url>
-      <content type="html"><![CDATA[<h2 id="如何搭建自己的hexo博客"><a href="#如何搭建自己的hexo博客" class="headerlink" title="如何搭建自己的hexo博客"></a>如何搭建自己的hexo博客</h2><p>分为两步：1.现在本地生成 2.上传到github服务器 生成静态博客</p>
+      <content type="html"><![CDATA[<h2 id="如何搭建自己的hexo博客"><a href="#如何搭建自己的hexo博客" class="headerlink" title="如何搭建自己的hexo博客"></a>如何搭建自己的hexo博客</h2><p>分为两步：1.先在本地生成 2.上传到github服务器 生成静态博客</p>
 <ol>
 <li>首先得安装好npm<a id="more"></a></li>
 <li><p>用npm安装hexo</p>

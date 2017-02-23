@@ -204,7 +204,7 @@ angular路由是用来模块化的
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/笔记/">
-                    笔记 <span class="right">1 篇</span></a>
+                    笔记 <span class="right">2 篇</span></a>
                 </a>
             </li>
 
@@ -314,6 +314,12 @@ angular路由是用来模块化的
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">app.controller(&quot;mycontroller&quot;,[&apos;$scope&apos;,&apos;$http&apos;,&apos;$routeParams&apos;,&apos;$route&apos;],function($scope,$http,$routeParams,$route)&#123;</div><div class="line">    //先渲染页面  然后在发送ajax请求 这里把页面都分号了  所以就只写ajax请求来渲染页面了</div><div class="line">    $http.get(&apos;地址：相对与html&apos;)      //get方法</div><div class="line">    .then(                             //then方法  地址</div><div class="line">    fn(data)&#123;成功的回调函数</div><div class="line">        //data  是一个被封装的对象  真正得到数据是  data.data</div><div class="line">        $scope.data = data.data    //通过这个方式 把数据暴露在controller中</div><div class="line">    &#125;,</div><div class="line">    fn(data)&#123;失败的回调函数&#125;</div><div class="line">    )</div><div class="line"></div><div class="line">    //jsonp请求</div><div class="line">    $http.jsonp(&apos;http://****?callback=JSON_CALLBACK&apos;)     //这里的callback=JSON_CALLBACK固定</div><div class="line">    .then(                             //then方法  地址</div><div class="line">    fn()&#123;成功的回调函数</div><div class="line">        //data  是一个被封装的对象  真正得到数据是  data.data</div><div class="line">        $scope.data = data.data    //通过这个方式 把数据暴露在controller中</div><div class="line">        &#125;,</div><div class="line">    fn()&#123;失败的回调函数&#125;</div><div class="line">    )</div><div class="line"></div><div class="line"></div><div class="line">    //当锚点值没有找到得到时候 可以重新设置 锚点值 到一个特定的地方</div><div class="line">    if($routeParams.status) &#123;</div><div class="line">        $route.updataParams = &apos;/要去的锚点&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
                 
+<p class="pink-link-context">
+    <a href="/2017/02/23/seajs和requirejs/" rel="next" title="seajs和requirejs的用法">
+    上一篇：seajs和requirejs的用法
+  </a>
+</p>
+
 
 
 <p class="pink-link-context">

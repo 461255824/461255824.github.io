@@ -7,13 +7,19 @@
 
     
 
-    <title>引言 | Mr yang</title>
+    <title>seajs和requirejs的用法 | Mr yang</title>
     <meta name="author" content="yang">
+    
+    <meta name="description" content="seajs  requirejs
+这个两个插件是用来做什么的？
+怎么用？
+有没有bug或者坑？
+有没有更好的？">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="seajs和requirejs的用法"/>
     <meta property="og:site_name" content="Mr yang"/>
 
     
@@ -231,30 +237,126 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（标签）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/笔记/">笔记</a>
+
 
         
-            <a class="breadcrumb" href="/tags/引言/">引言</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>seajs和requirejs的用法</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="pink-link-context" datetime="2017-02-23T13:30:25.236Z"><a href="/2017/02/23/seajs和requirejs/">2017-02-23</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
-            <a href="/2017/02/18/ReadMe/" class="collection-item grey-text text-darken-1">
-                <time datetime="2017-02-18T04:46:25.000Z">2017-02-18</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                引言
-            </a>
+            <a href="/tags/管理工具/" class="chip pink lighten-1">管理工具</a>
         
     </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#seajs-requirejs"><span class="section table-of-contents-text">seajs  requirejs</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#seajs"><span class="section table-of-contents-text">seajs</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#模块化变量方法"><span class="section table-of-contents-text">模块化变量方法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#seajs-–-gt-cmd-模块-一个模块就是一个文件-define-require-exports-module"><span class="section table-of-contents-text">seajs  –> cmd 模块 一个模块就是一个文件  define require exports module</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#用法"><span class="section table-of-contents-text">用法</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#这里路径要注意"><span class="section table-of-contents-text">这里路径要注意</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#主js-main-js"><span class="section table-of-contents-text">主js  main.js</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#下一级js"><span class="section table-of-contents-text">下一级js</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#requirejs用法"><span class="section table-of-contents-text">requirejs用法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#二者的共同点"><span class="section table-of-contents-text">二者的共同点</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h2 id="seajs-requirejs"><a href="#seajs-requirejs" class="headerlink" title="seajs  requirejs"></a>seajs  requirejs</h2><ul>
+<li>这个两个插件是用来做什么的？</li>
+<li>怎么用？</li>
+<li>有没有bug或者坑？</li>
+<li>有没有更好的？<a id="more"></a>
+<h3 id="seajs"><a href="#seajs" class="headerlink" title="seajs"></a>seajs</h3></li>
+<li>这两个插件都是用来管理加载的 主要解决以下两个问题：</li>
+</ul>
+<ol>
+<li>变量空间   通过封装来保证模块内的变量不会污染全局</li>
+<li>减少页面引入的js链接的数量  便于管理</li>
+</ol>
+<ul>
+<li>这两个软件都是用来做模块化的</li>
+<li>模块化的好处<ul>
+<li>提升开发效率</li>
+<li>便于后期维护</li>
+</ul>
+</li>
+<li>常见的模块规范 cmd amd commenjs ECMAscript</li>
+</ul>
+<h3 id="模块化变量方法"><a href="#模块化变量方法" class="headerlink" title="模块化变量方法"></a>模块化变量方法</h3><ul>
+<li>全局变量</li>
+<li>把变量绑定到一个对象身上</li>
+<li>隔离公有私有变量</li>
+</ul>
+<h3 id="seajs-–-gt-cmd-模块-一个模块就是一个文件-define-require-exports-module"><a href="#seajs-–-gt-cmd-模块-一个模块就是一个文件-define-require-exports-module" class="headerlink" title="seajs  –&gt; cmd 模块 一个模块就是一个文件  define require exports module"></a>seajs  –&gt; cmd 模块 一个模块就是一个文件  define require exports module</h3><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">先在主页html中引入sea.js文件</div><div class="line">&lt;script src=&quot;sea.js&quot;&gt;&lt;/script&gt;</div><div class="line">在写一个主标签</div><div class="line">&lt;script&gt;</div><div class="line">    seajs.use(&apos;./main&apos;,function()&#123;</div><div class="line">        //加载后的回调函数</div><div class="line">    &#125;)</div><div class="line">    //也就是去调用主页面  这里路径要注意</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="这里路径要注意"><a href="#这里路径要注意" class="headerlink" title="这里路径要注意"></a>这里路径要注意</h3><ul>
+<li>seajs的路径会默认是主路径  可以不加’.js’后缀</li>
+</ul>
+<h3 id="主js-main-js"><a href="#主js-main-js" class="headerlink" title="主js  main.js"></a>主js  main.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//基本上是一define开始定义一个模块</div><div class="line">define(function(require,exports,module)&#123;</div><div class="line">    //这里用require引入其他模块</div><div class="line">    var foo = require(&apos;下一级路径&apos;)    //路径相对与主 main.js开始  ---&gt;一般返回的是一个对象</div><div class="line">    //这里就可以操作foo在页面中出效果</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="下一级js"><a href="#下一级js" class="headerlink" title="下一级js"></a>下一级js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">define(function(require,exports,module)&#123;</div><div class="line">    function()&#123;&#125;</div><div class="line">    var a...</div><div class="line">    //所有的变量和方法需要别人用的都绑定到一个对象上最后返回出去</div><div class="line"></div><div class="line">    module.exports = &#123;</div><div class="line">        fn:fn,</div><div class="line">        a:a...</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="requirejs用法"><a href="#requirejs用法" class="headerlink" title="requirejs用法"></a>requirejs用法</h3><ul>
+<li>基本上和seajs类型 不过不同在于</li>
+</ul>
+<ol>
+<li><p>它在页面上script中直接指定了主js  在页面上也就只有这一个  预加载 预解析</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script data-main=&quot;scripts/main.js&quot; src=&quot;scripts/require.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>所有主要编写main.js中的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">requirejs([&apos;jquery&apos;,&apos;canvas&apos;],function($,ca)&#123;   ---&gt;这里引入是一个模块对象</div><div class="line">                                                ---&gt;在模块中返回的是一个对象</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>模块写法   模块就是用来返回对象的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">define(function()&#123;</div><div class="line">    return &#123;</div><div class="line">    name:...</div><div class="line">    age:....</div><div class="line">&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="二者的共同点"><a href="#二者的共同点" class="headerlink" title="二者的共同点"></a>二者的共同点</h3><ol>
+<li>都可以配置路径<br>seajs.config({<br>path:’主路径’,<br>})</li>
+<li>都是预加载  但是seajs是懒解析</li>
+</ol>
+
+                
+
+
+<p class="pink-link-context">
+    <a href="/2017/02/21/angular-route/" rel="next" title="angular路由小结">
+    下一篇：angular路由小结
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
 
 
 </div>
