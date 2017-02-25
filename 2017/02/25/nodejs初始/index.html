@@ -7,13 +7,22 @@
 
     
 
-    <title>引言： | Mr yang</title>
+    <title>nodejs初始 | Mr yang</title>
     <meta name="author" content="yang">
+    
+    <meta name="description" content="nodejs初始
+nodejs是什么
+它是一个用来解释和执行javascript的运行环境
+
+
+首先nodejs是用来干嘛的
+构建服务器
+构建工具">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="nodejs初始"/>
     <meta property="og:site_name" content="Mr yang"/>
 
     
@@ -231,30 +240,125 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
         <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/笔记/">笔记</a>
+
 
         
-            <a class="breadcrumb" href="/categories/引言：/">引言：</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>nodejs初始</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="pink-link-context" datetime="2017-02-25T13:25:04.240Z"><a href="/2017/02/25/nodejs初始/">2017-02-25</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
-            <a href="/2017/02/18/ReadMe/" class="collection-item grey-text text-darken-1">
-                <time datetime="2017-02-18T04:46:25.000Z">2017-02-18</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                引言
-            </a>
+            <a href="/tags/笔记/" class="chip pink lighten-1">笔记</a>
         
     </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#nodejs初始"><span class="section table-of-contents-text">nodejs初始</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#全局变量"><span class="section table-of-contents-text">全局变量</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#process进程"><span class="section table-of-contents-text">process进程</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#path处理文件路径"><span class="section table-of-contents-text">path处理文件路径</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#引入querystring"><span class="section table-of-contents-text">引入querystring</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#引入fs-文件系统"><span class="section table-of-contents-text">引入fs  文件系统</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h3 id="nodejs初始"><a href="#nodejs初始" class="headerlink" title="nodejs初始"></a>nodejs初始</h3><ul>
+<li>nodejs是什么<ul>
+<li>它是一个用来解释和执行javascript的运行环境</li>
+</ul>
+</li>
+<li>首先nodejs是用来干嘛的<ul>
+<li>构建服务器</li>
+<li>构建工具<a id="more"></a></li>
+</ul>
+</li>
+<li>特点：<ul>
+<li>事件驱动</li>
+<li>非阻塞I/O流</li>
+</ul>
+</li>
+<li>运行环境；<br>chrome v8引擎</li>
+<li>它有一个自己的模块化<ul>
+<li>commonjs 使用基本上和seajs相仿</li>
+<li>代码同步执行</li>
+<li>会缓存资源不会出现死循环调用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = require(&apos;./b&apos;)   =&gt;  另一个文件夹下面   var b = require(&apos;./a&apos;)</div><div class="line">   console.log(&quot;2&quot;)                                     console.log(&quot;1&quot;);</div><div class="line">//只会执行一次</div><div class="line">先打印1</div><div class="line">再打印2</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><ul>
+<li>global<ul>
+<li>可以用来加载一些共用得到方法或者参数<h3 id="process进程"><a href="#process进程" class="headerlink" title="process进程"></a>process进程</h3></li>
+</ul>
+</li>
+<li><p>process.argv  进程执行时的参数 是一个数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">process.argv.slice(2);  --&gt; slice用来截取数组</div></pre></td></tr></table></figure>
+</li>
+<li><p>process.stdout.write(‘hello world’);</p>
+<ul>
+<li>向外打印输出  相当于console.log<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">process.stdin.on(&apos;data&apos;,function(chunk)&#123;</div><div class="line">    console.log(chunck.toString())   ==&gt;是一个十六进制的数，需要转换为可现实的字符串</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="path处理文件路径"><a href="#path处理文件路径" class="headerlink" title="path处理文件路径"></a>path处理文件路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var path = require(&apos;path&apos;);</div><div class="line">path.jion(__dirname,&apos;name&apos;) =&gt; __filename;</div></pre></td></tr></table></figure>
+<h3 id="引入querystring"><a href="#引入querystring" class="headerlink" title="引入querystring"></a>引入querystring</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var querystring = require(&apos;querystring&apos;);</div><div class="line">//把字符串转为对象</div><div class="line">var str = &apos;name=xiaoming&amp;age=18&apos;</div><div class="line">querystring.parse(str) =&gt; &#123;name:&quot;xiaoming&quot;,age:&quot;18&quot;&#125;;</div><div class="line">var  obj = &#123;name:&quot;xiaoming&quot;,age:&quot;18&quot;&#125;;</div><div class="line">querystring.stringify(obj)  =&gt; &apos;name=xiaoming&amp;age=18&apos;</div></pre></td></tr></table></figure>
+<h3 id="引入fs-文件系统"><a href="#引入fs-文件系统" class="headerlink" title="引入fs  文件系统"></a>引入fs  文件系统</h3><ul>
+<li><p>readFile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">fs.readFile(&apos;./wenjian&apos;,[&apos;utf-8&apos;],function(err,data)&#123;</div><div class="line">    if(err) &#123;</div><div class="line">    throw err;</div><div class="line">    &#125;</div><div class="line">    console.log(data.toString());</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>writeFile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">fs.writeFile(&apos;./a.txt&apos;,&apos;hellowrld&apos;,function(err)&#123;</div><div class="line">    if(err) throw err;</div><div class="line">    console.log(&apos;写入成功&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+                
+
+
+<p class="pink-link-context">
+    <a href="/2017/02/23/seajs和requirejs/" rel="next" title="seajs和requirejs的用法">
+    下一篇：seajs和requirejs的用法
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
 
 
 </div>
