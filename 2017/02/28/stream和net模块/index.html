@@ -7,13 +7,21 @@
 
     
 
-    <title>杂文 | Mr yang</title>
+    <title>stream和net核心模块 | Mr yang</title>
     <meta name="author" content="yang">
+    
+    <meta name="description" content="stream流
+node可以用fs模块readFile和writeFile来完成读取和输出的任务
+但是不能操作大文件
+所以有了stream流来操作大文件
+
+
+需要引入核心模块fs1var fs = require(&amp;apos;fs&amp;apos;);">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="stream和net核心模块"/>
     <meta property="og:site_name" content="Mr yang"/>
 
     
@@ -239,30 +247,136 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（标签）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
 
         
-            <a class="breadcrumb" href="/tags/杂文/">杂文</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>stream和net核心模块</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="pink-link-context" datetime="2017-02-28T15:00:59.865Z"><a href="/2017/02/28/stream和net模块/">2017-02-28</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
-            <a href="/2017/02/18/markuphexo/" class="collection-item grey-text text-darken-1">
-                <time datetime="2017-02-18T12:30:18.401Z">2017-02-18</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                新建hexo个博客
-            </a>
+            <a href="/tags/笔记/" class="chip pink lighten-1">笔记</a>
         
     </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#stream流"><span class="section table-of-contents-text">stream流</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#net模块实现聊天室"><span class="section table-of-contents-text">net模块实现聊天室</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#配置客户端"><span class="section table-of-contents-text">配置客户端</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#升级"><span class="section table-of-contents-text">升级</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h3 id="stream流"><a href="#stream流" class="headerlink" title="stream流"></a>stream流</h3><ul>
+<li>node可以用fs模块readFile和writeFile来完成读取和输出的任务</li>
+<li>但是不能操作大文件</li>
+<li>所以有了stream流来操作大文件</li>
+</ul>
+<ol>
+<li>需要引入核心模块fs<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><p>创建读取和输出的路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var path = require(&apos;path&apos;);</div><div class="line">var src = path.join(__dirname,&apos;a.mp4&apos;);</div><div class="line">var dist = path.join(__dirname,&apos;b.mp4&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>生成读取和写入的路径或目标文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var rs = fs.createReadStream(src);</div><div class="line">var ws = fs.createWriteStream(dist); ----&gt;在这里文件就会被创建出来</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用pipe快速流</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rs.pipe(ws);</div></pre></td></tr></table></figure>
+</li>
+<li><p>另一种是慢慢读rs中的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var arr = [];</div><div class="line">rs.on(&apos;data&apos;,function(chunk)&#123;</div><div class="line">    //这里读出来的chunk是二进制数据</div><div class="line">    arr.push(chunk);</div><div class="line">&#125;)</div><div class="line">rs.on(&apos;end&apos;,function()&#123;</div><div class="line">    //调用Buffer的concat()  ---&gt;把二进制合成一个concat</div><div class="line">    ws.write(Buffer.concat(arr));</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>可以在读之前得到文件的大小  来计算进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var totalsize = fs.statSync(src).size;</div><div class="line">//在文件读取中计算已度的长度</div><div class="line">var cursize = 0;</div><div class="line">rs.on(&apos;data&apos;,function(chunk)&#123;</div><div class="line">    cursize += chunk.length;</div><div class="line">    //进度值 就是  当前/总的  * 100  toFixed(2)  保留两位</div><div class="line">    console.log((cursize/totalsize*100).toFixed(2)+%)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="net模块实现聊天室"><a href="#net模块实现聊天室" class="headerlink" title="net模块实现聊天室"></a>net模块实现聊天室</h3><ul>
+<li>首先是tpc协议  双工模式<br>++  就是服务器和客户端能相互对话</li>
+</ul>
+<ol>
+<li><p>首页引入net模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var net = require(&apos;net&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var server = net.createServer();</div></pre></td></tr></table></figure>
+</li>
+<li><p>监视网络连接情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">server.on(&apos;connection&apos;,function(socket)&#123;</div><div class="line">    //这里socket就是连接 服务器和客户端的 对象    ————————&gt;就像网线一样</div><div class="line"></div><div class="line">    1.  监视服务端的输入事件</div><div class="line">    socket.on(&apos;data&apos;,function(data)&#123;</div><div class="line">        data ---&gt;   这个是服务端写入的数据</div><div class="line">    &#125;)</div><div class="line">    socket.write(&apos;nihao&apos;)   ---&gt;这个是服务端可以写入数据</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>分配ip和端口 开启服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">server.listen(3000,&apos;127.0.0.1&apos;,function()&#123;     ----&gt;这里的ip地址要写的</div><div class="line">    console.log(&apos;开启服务器&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h3><ol>
+<li><p>引入模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var net = require(&apos;net&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var client = net.createConnection(&#123;   ------&gt;client 实际上就是服务端的socket对象</div><div class="line">    port:3000,</div><div class="line">    host:&apos;127.0.0.1&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">client.on(&apos;connect&apos;,function()&#123;</div><div class="line">    //链接事件</div><div class="line">&#125;)</div><div class="line"></div><div class="line">client.on(&apos;data&apos;,function(data)&#123;</div><div class="line">    //服务器 向客户端发的数据</div><div class="line">&#125;)</div><div class="line">process.stdin.on(&apos;data&apos;,function(data)&#123;</div><div class="line">    client.write(data)  ------&gt;  通过进程的输入事件向 服务器发数据</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><ul>
+<li>可以将聊天的内容  和  文件读取流结合起来  发送数据 ，当然这看起来并没什么用</li>
+</ul>
+
+                
+<p class="pink-link-context">
+    <a href="/2017/03/04/spider/" rel="next" title="nodejs写爬虫">
+    上一篇：nodejs写爬虫
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2017/02/25/nodejs初始/" rel="next" title="nodejs初始">
+    下一篇：nodejs初始
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
 
 
 </div>

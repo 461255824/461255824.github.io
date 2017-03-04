@@ -7,13 +7,18 @@
 
     
 
-    <title>杂文 | Mr yang</title>
+    <title>nodejs写爬虫 | Mr yang</title>
     <meta name="author" content="yang">
+    
+    <meta name="description" content="nodejs写爬虫
+首先声明这里写的爬虫很简单  基本上只能爬静态页面  算是最最基本的爬虫
+如果要深入研究爬虫 —&amp;gt;  要解决网页异步请求的问题
+或许phython能更好的用于编写爬虫">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="nodejs写爬虫"/>
     <meta property="og:site_name" content="Mr yang"/>
 
     
@@ -239,30 +244,88 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（标签）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/nodejs/">nodejs</a>
+
 
         
-            <a class="breadcrumb" href="/tags/杂文/">杂文</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>nodejs写爬虫</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="pink-link-context" datetime="2017-03-04T12:06:23.439Z"><a href="/2017/03/04/spider/">2017-03-04</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
-            <a href="/2017/02/18/markuphexo/" class="collection-item grey-text text-darken-1">
-                <time datetime="2017-02-18T12:30:18.401Z">2017-02-18</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                新建hexo个博客
-            </a>
+            <a href="/tags/笔记/" class="chip pink lighten-1">笔记</a>
         
     </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#nodejs写爬虫"><span class="section table-of-contents-text">nodejs写爬虫</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#下面就来写吧"><span class="section table-of-contents-text">下面就来写吧</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h3 id="nodejs写爬虫"><a href="#nodejs写爬虫" class="headerlink" title="nodejs写爬虫"></a>nodejs写爬虫</h3><ul>
+<li>首先声明这里写的爬虫很简单  基本上只能爬静态页面  算是最最基本的爬虫</li>
+<li>如果要深入研究爬虫 —&gt;  要解决网页异步请求的问题</li>
+<li>或许phython能更好的用于编写爬虫<a id="more"></a>
+<h3 id="下面就来写吧"><a href="#下面就来写吧" class="headerlink" title="下面就来写吧"></a>下面就来写吧</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//先安装需要的依赖包</div><div class="line">npm init -y</div><div class="line">npm init express request cheerio --save</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var request = require(&apos;request&apos;);</div><div class="line">var cheerio = require(&apos;cheerio&apos;);</div><div class="line">var app = express();</div></pre></td></tr></table></figure>
+<ul>
+<li>开始</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    request(&apos;url&apos;,function(err,response,body)&#123;</div><div class="line">    body ----&gt;这里的body就是请求回来的字符串页面源码</div><div class="line">    var $ = cheerio(body)    ---&gt;cheerio 可以把body转为dom  由$ 相当于jquery去操作</div><div class="line"></div><div class="line">    res.send($(&apos;img&apos;).attr(&quot;src&quot;))       ----&gt; 可以是 img图片</div><div class="line">    res.json(&#123;img:$(&apos;img&apos;)&#125;)  ---&gt;  json数据</div><div class="line">    &#125;)</div><div class="line">&#125;)</div><div class="line">app.listen(3000,function()&#123;</div><div class="line">    console.log(&apos;开启服务&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+                
+
+
+<p class="pink-link-context">
+    <a href="/2017/02/28/stream和net模块/" rel="next" title="stream和net核心模块">
+    下一篇：stream和net核心模块
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
 
 
 </div>

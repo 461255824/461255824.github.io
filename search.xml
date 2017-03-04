@@ -4,6 +4,110 @@
   
     
     <entry>
+      <title><![CDATA[nodejs写爬虫]]></title>
+      <url>http://yoursite.com/2017/03/04/spider/</url>
+      <content type="html"><![CDATA[<h3 id="nodejs写爬虫"><a href="#nodejs写爬虫" class="headerlink" title="nodejs写爬虫"></a>nodejs写爬虫</h3><ul>
+<li>首先声明这里写的爬虫很简单  基本上只能爬静态页面  算是最最基本的爬虫</li>
+<li>如果要深入研究爬虫 —&gt;  要解决网页异步请求的问题</li>
+<li>或许phython能更好的用于编写爬虫<a id="more"></a>
+<h3 id="下面就来写吧"><a href="#下面就来写吧" class="headerlink" title="下面就来写吧"></a>下面就来写吧</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//先安装需要的依赖包</div><div class="line">npm init -y</div><div class="line">npm init express request cheerio --save</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var request = require(&apos;request&apos;);</div><div class="line">var cheerio = require(&apos;cheerio&apos;);</div><div class="line">var app = express();</div></pre></td></tr></table></figure>
+<ul>
+<li>开始</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    request(&apos;url&apos;,function(err,response,body)&#123;</div><div class="line">    body ----&gt;这里的body就是请求回来的字符串页面源码</div><div class="line">    var $ = cheerio(body)    ---&gt;cheerio 可以把body转为dom  由$ 相当于jquery去操作</div><div class="line"></div><div class="line">    res.send($(&apos;img&apos;).attr(&quot;src&quot;))       ----&gt; 可以是 img图片</div><div class="line">    res.json(&#123;img:$(&apos;img&apos;)&#125;)  ---&gt;  json数据</div><div class="line">    &#125;)</div><div class="line">&#125;)</div><div class="line">app.listen(3000,function()&#123;</div><div class="line">    console.log(&apos;开启服务&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> nodejs </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[stream和net核心模块]]></title>
+      <url>http://yoursite.com/2017/02/28/stream%E5%92%8Cnet%E6%A8%A1%E5%9D%97/</url>
+      <content type="html"><![CDATA[<h3 id="stream流"><a href="#stream流" class="headerlink" title="stream流"></a>stream流</h3><ul>
+<li>node可以用fs模块readFile和writeFile来完成读取和输出的任务</li>
+<li>但是不能操作大文件</li>
+<li>所以有了stream流来操作大文件</li>
+</ul>
+<ol>
+<li>需要引入核心模块fs<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><p>创建读取和输出的路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var path = require(&apos;path&apos;);</div><div class="line">var src = path.join(__dirname,&apos;a.mp4&apos;);</div><div class="line">var dist = path.join(__dirname,&apos;b.mp4&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>生成读取和写入的路径或目标文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var rs = fs.createReadStream(src);</div><div class="line">var ws = fs.createWriteStream(dist); ----&gt;在这里文件就会被创建出来</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用pipe快速流</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rs.pipe(ws);</div></pre></td></tr></table></figure>
+</li>
+<li><p>另一种是慢慢读rs中的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var arr = [];</div><div class="line">rs.on(&apos;data&apos;,function(chunk)&#123;</div><div class="line">    //这里读出来的chunk是二进制数据</div><div class="line">    arr.push(chunk);</div><div class="line">&#125;)</div><div class="line">rs.on(&apos;end&apos;,function()&#123;</div><div class="line">    //调用Buffer的concat()  ---&gt;把二进制合成一个concat</div><div class="line">    ws.write(Buffer.concat(arr));</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>可以在读之前得到文件的大小  来计算进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var totalsize = fs.statSync(src).size;</div><div class="line">//在文件读取中计算已度的长度</div><div class="line">var cursize = 0;</div><div class="line">rs.on(&apos;data&apos;,function(chunk)&#123;</div><div class="line">    cursize += chunk.length;</div><div class="line">    //进度值 就是  当前/总的  * 100  toFixed(2)  保留两位</div><div class="line">    console.log((cursize/totalsize*100).toFixed(2)+%)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="net模块实现聊天室"><a href="#net模块实现聊天室" class="headerlink" title="net模块实现聊天室"></a>net模块实现聊天室</h3><ul>
+<li>首先是tpc协议  双工模式<br>++  就是服务器和客户端能相互对话</li>
+</ul>
+<ol>
+<li><p>首页引入net模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var net = require(&apos;net&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var server = net.createServer();</div></pre></td></tr></table></figure>
+</li>
+<li><p>监视网络连接情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">server.on(&apos;connection&apos;,function(socket)&#123;</div><div class="line">    //这里socket就是连接 服务器和客户端的 对象    ————————&gt;就像网线一样</div><div class="line"></div><div class="line">    1.  监视服务端的输入事件</div><div class="line">    socket.on(&apos;data&apos;,function(data)&#123;</div><div class="line">        data ---&gt;   这个是服务端写入的数据</div><div class="line">    &#125;)</div><div class="line">    socket.write(&apos;nihao&apos;)   ---&gt;这个是服务端可以写入数据</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>分配ip和端口 开启服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">server.listen(3000,&apos;127.0.0.1&apos;,function()&#123;     ----&gt;这里的ip地址要写的</div><div class="line">    console.log(&apos;开启服务器&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h3><ol>
+<li><p>引入模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var net = require(&apos;net&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var client = net.createConnection(&#123;   ------&gt;client 实际上就是服务端的socket对象</div><div class="line">    port:3000,</div><div class="line">    host:&apos;127.0.0.1&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">client.on(&apos;connect&apos;,function()&#123;</div><div class="line">    //链接事件</div><div class="line">&#125;)</div><div class="line"></div><div class="line">client.on(&apos;data&apos;,function(data)&#123;</div><div class="line">    //服务器 向客户端发的数据</div><div class="line">&#125;)</div><div class="line">process.stdin.on(&apos;data&apos;,function(data)&#123;</div><div class="line">    client.write(data)  ------&gt;  通过进程的输入事件向 服务器发数据</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><ul>
+<li>可以将聊天的内容  和  文件读取流结合起来  发送数据 ，当然这看起来并没什么用</li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[nodejs初始]]></title>
       <url>http://yoursite.com/2017/02/25/nodejs%E5%88%9D%E5%A7%8B/</url>
       <content type="html"><![CDATA[<h3 id="nodejs初始"><a href="#nodejs初始" class="headerlink" title="nodejs初始"></a>nodejs初始</h3><ul>
