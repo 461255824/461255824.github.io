@@ -7,13 +7,15 @@
 
     
 
-    <title>引言 | Mr yang</title>
+    <title>mysql基本指令 | Mr yang</title>
     <meta name="author" content="yang">
+    
+    <meta name="description" content="mysql12345DataBase System = 数据库管理系统（DBMS，DataBase Management System) + 数据库(DataBase) + 管理员DBS = DBMS + DB定义：对大量信息进行管理的高效解决方案，按照数据结构来组织、存储和管理数据的库关系型数据库系统建立在关系模型上的数据库系统。">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="mysql基本指令"/>
     <meta property="og:site_name" content="Mr yang"/>
 
     
@@ -255,30 +257,102 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（标签）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/mysql/">mysql</a>
+
 
         
-            <a class="breadcrumb" href="/tags/引言/">引言</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>mysql基本指令</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="pink-link-context" datetime="2017-03-07T02:05:37.460Z"><a href="/2017/03/07/mysql/">2017-03-07</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
-            <a href="/2017/02/18/ReadMe/" class="collection-item grey-text text-darken-1">
-                <time datetime="2017-02-18T04:46:25.000Z">2017-02-18</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                引言
-            </a>
+            <a href="/tags/笔记/" class="chip pink lighten-1">笔记</a>
         
     </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#mysql"><span class="section table-of-contents-text">mysql</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h3 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DataBase System = 数据库管理系统（DBMS，DataBase Management System) + 数据库(DataBase) + 管理员</div><div class="line">DBS = DBMS + DB</div><div class="line">定义：对大量信息进行管理的高效解决方案，按照数据结构来组织、存储和管理数据的库</div><div class="line">关系型数据库系统</div><div class="line">建立在关系模型上的数据库系统。</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li><p>前端能知道的知识</p>
+<ul>
+<li>这里就只是讲了一下和mysql的的接口</li>
+</ul>
+</li>
+<li><p>如何在node搭建的服务器，请求mysql的API</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var mysql = require(&apos;mysql&apos;);</div><div class="line">var connetion = mysql.createConnection(&#123;</div><div class="line">    host:&apos;localhost&apos;,    ---&gt; 地址ip</div><div class="line">    user:&apos;root&apos;,         ---&gt; 用户名</div><div class="line">    password:&apos;&apos;,</div><div class="line">    database:&apos;itcast&apos;     ---&gt; 数据库具体的条目</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>数据增删改查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">connection.query(&apos;指令&apos;,function(err,result,files)&#123;</div><div class="line">    //  ---&gt; 指令最好用ES6中  ``来包裹  其中的变量 --&gt; &quot;$&#123; 变量 &#125;&quot;</div><div class="line">    if(err) throw err;</div><div class="line">    result  ---&gt; 结果</div><div class="line">    files   ---&gt; 数据库信息</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 查</div><div class="line">select * from &apos;名字&apos;;</div><div class="line"></div><div class="line">//改</div><div class="line">update &apos;名字&apos; set name = &apos;&apos;,content=&apos;&apos; where id = 1;</div><div class="line"></div><div class="line">//增</div><div class="line">insert into &apos;名字&apos;(name,content) values(&apos;name&apos;,&apos;content&apos;);</div><div class="line"></div><div class="line">//删</div><div class="line">delete from &apos;名字&apos; where id = 9;</div></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://github.com/461255824/node-crawler" target="_blank" rel="external">github练习</a></p>
+</li>
+</ul>
+
+                
+<p class="pink-link-context">
+    <a href="/2017/03/07/handlebars/" rel="next" title="模板引擎的使用">
+    上一篇：模板引擎的使用
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2017/03/04/spider/" rel="next" title="nodejs写爬虫">
+    下一篇：nodejs写爬虫
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
 
 
 </div>
