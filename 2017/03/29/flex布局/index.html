@@ -7,15 +7,24 @@
 
     
 
-    <title>mysql基本指令 | Mr yang</title>
+    <title>flex布局 | Mr yang</title>
     <meta name="author" content="yang">
     
-    <meta name="description" content="mysql12345DataBase System = 数据库管理系统（DBMS，DataBase Management System) + 数据库(DataBase) + 管理员DBS = DBMS + DB定义：对大量信息进行管理的高效解决方案，按照数据结构来组织、存储和管理数据的库关系型数据库系统建立在关系模型上的数据库系统。">
+    <meta name="description" content="felx布局
+flex布局是用来瓜分剩余宽度的
+用它来替代之前的div table 和float 等布局
+更加的强大
+
+
+存在兼容问题：
+IE10以下是不支持的
+Android4，1/4.2/4.3存在问题 苹果safari7存在问题
+Webkit内核的浏览器，必须加上-webkit前缀">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="mysql基本指令"/>
+    <meta property="og:title" content="flex布局"/>
     <meta property="og:site_name" content="Mr yang"/>
 
     
@@ -272,7 +281,7 @@
             
     
     
-    <a class="breadcrumb" href="/categories/mysql/">mysql</a>
+    <a class="breadcrumb" href="/categories/flex/">flex</a>
 
 
         
@@ -289,12 +298,12 @@
             <div class="article-title">
                 
     
-        <h1>mysql基本指令</h1>
+        <h1>flex布局</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2017-03-07T02:05:37.460Z"><a href="/2017/03/07/mysql/">2017-03-07</a></time>
+            <time class="pink-link-context" datetime="2017-03-29T14:45:43.222Z"><a href="/2017/03/29/flex布局/">2017-03-29</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -310,44 +319,69 @@
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#mysql"><span class="section table-of-contents-text">mysql</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#felx布局"><span class="section table-of-contents-text">felx布局</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#如何瓜分剩余宽度"><span class="section table-of-contents-text">如何瓜分剩余宽度</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#简单案例"><span class="section table-of-contents-text">简单案例</span></a></li></ol></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <h3 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DataBase System = 数据库管理系统（DBMS，DataBase Management System) + 数据库(DataBase) + 管理员</div><div class="line">DBS = DBMS + DB</div><div class="line">定义：对大量信息进行管理的高效解决方案，按照数据结构来组织、存储和管理数据的库</div><div class="line">关系型数据库系统</div><div class="line">建立在关系模型上的数据库系统。</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<ul>
-<li><p>前端能知道的知识</p>
-<ul>
-<li>这里就只是讲了一下和mysql的的接口</li>
+                <h2 id="felx布局"><a href="#felx布局" class="headerlink" title="felx布局"></a>felx布局</h2><ul>
+<li>flex布局是用来瓜分剩余宽度的<ul>
+<li>用它来替代之前的div table 和float 等布局</li>
+<li>更加的强大</li>
 </ul>
 </li>
-<li><p>如何在node搭建的服务器，请求mysql的API</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var mysql = require(&apos;mysql&apos;);</div><div class="line">var connetion = mysql.createConnection(&#123;</div><div class="line">    host:&apos;localhost&apos;,    ---&gt; 地址ip</div><div class="line">    user:&apos;root&apos;,         ---&gt; 用户名</div><div class="line">    password:&apos;&apos;,</div><div class="line">    database:&apos;itcast&apos;     ---&gt; 数据库具体的条目</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<li>存在兼容问题：<ul>
+<li>IE10以下是不支持的</li>
+<li>Android4，1/4.2/4.3存在问题 苹果safari7存在问题</li>
+<li>Webkit内核的浏览器，必须加上-webkit前缀<a id="more"></a>
+<h3 id="如何瓜分剩余宽度"><a href="#如何瓜分剩余宽度" class="headerlink" title="如何瓜分剩余宽度"></a>如何瓜分剩余宽度</h3></li>
+</ul>
 </li>
-<li><p>数据增删改查</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">connection.query(&apos;指令&apos;,function(err,result,files)&#123;</div><div class="line">    //  ---&gt; 指令最好用ES6中  ``来包裹  其中的变量 --&gt; &quot;$&#123; 变量 &#125;&quot;</div><div class="line">    if(err) throw err;</div><div class="line">    result  ---&gt; 结果</div><div class="line">    files   ---&gt; 数据库信息</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<li>首先剩余宽度是怎么算出来的？<br>剩余宽度 = 父元素宽度 - 子元素宽度</li>
+<li>如何分配这个剩余宽度？<ol>
+<li>父元素开启display:flex;<ul>
+<li>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）</li>
+</ul>
 </li>
-<li><p>指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 查</div><div class="line">select * from &apos;名字&apos;;</div><div class="line"></div><div class="line">//改</div><div class="line">update &apos;名字&apos; set name = &apos;&apos;,content=&apos;&apos; where id = 1;</div><div class="line"></div><div class="line">//增</div><div class="line">insert into &apos;名字&apos;(name,content) values(&apos;name&apos;,&apos;content&apos;);</div><div class="line"></div><div class="line">//删</div><div class="line">delete from &apos;名字&apos; where id = 9;</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://github.com/461255824/node-crawler" target="_blank" rel="external">github练习</a></p>
+<li>子元素的分配规则：<br>用flex 0/1/2/3占的份数<h3 id="简单案例"><a href="#简单案例" class="headerlink" title="简单案例"></a>简单案例</h3></li>
+</ol>
 </li>
 </ul>
+<ol>
+<li><p>顶部head（头部）  –&gt;相当于两栏布局</p>
+<ul>
+<li>&lt;      这是头部标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;header&gt;</div><div class="line"> &lt;a&gt; &lt; &lt;/a&gt;</div><div class="line"> &lt;h1&gt;这是一个头部title&lt;/h1&gt;</div><div class="line">&lt;/header&gt;</div><div class="line">&lt;!--css标签--&gt;</div><div class="line">header &#123;</div><div class="line">    display:flex;</div><div class="line">&#125;</div><div class="line">header h1&#123;</div><div class="line">    flex:1;     ----&gt;让h1占完剩余宽度</div><div class="line">&#125;</div><div class="line">效果：左边的a标签随内容改变大小；右边的title内容相当于占完剩余的空间</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>导航nav</p>
+</li>
+</ol>
+<ul>
+<li>导航1   导航2   导航3   导航4<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li&gt;导航1&lt;/li&gt;</div><div class="line">    &lt;li&gt;导航2&lt;/li&gt;</div><div class="line">    &lt;li&gt;导航3&lt;/li&gt;</div><div class="line">    &lt;li&gt;导航4&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">//css样式</div><div class="line">ul &#123;</div><div class="line">    display:flex;</div><div class="line">    justify-content:space-around;---&gt;两边留有余地</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>主轴：justify-cotent:<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071010.png" alt="justify-content"></li>
+<li>交叉轴：align-items<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071011.png" alt="align-items"></li>
+</ul>
+<ol>
+<li><p>元素居中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &lt;div&gt;让这个元素居中&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">//css</div><div class="line">父元素 &#123;</div><div class="line">    display:flex;</div><div class="line">    justify-content:center;</div><div class="line">    align-items:center;</div><div class="line">&#125;</div><div class="line">内部元素的居中</div></pre></td></tr></table></figure>
+</li>
+<li><p>轮播图flex-shrink</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;1&lt;/li&gt;</div><div class="line">        &lt;li&gt;2&lt;/li&gt;</div><div class="line">        &lt;li&gt;3&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;div&gt;</div><div class="line">//css</div><div class="line">ul&#123;</div><div class="line">    display:flex;  --&gt; li按行排列</div><div class="line">&#125;</div><div class="line">ul li &#123;</div><div class="line">    flex-shrink:0;   ---&gt;规定ul下面的li不进行收缩还是占一整行</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意点：flex 开启了BFC</p>
+</li>
+</ol>
 
                 
+
+
 <p class="pink-link-context">
     <a href="/2017/03/07/handlebars/" rel="next" title="模板引擎的使用">
-    上一篇：模板引擎的使用
-  </a>
-</p>
-
-
-
-<p class="pink-link-context">
-    <a href="/2017/03/04/spider/" rel="next" title="nodejs写爬虫">
-    下一篇：nodejs写爬虫
+    下一篇：模板引擎的使用
   </a>
 </p>
 

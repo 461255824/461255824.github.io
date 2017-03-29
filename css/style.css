@@ -45,7 +45,7 @@ html {
 }
 @media (max-width: 767px) {
   .container {
-    width: 80%;
+    width: 90%;
   }
 }
 .container .row {
