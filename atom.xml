@@ -96,13 +96,13 @@
     <link href="http://yoursite.com/2017/03/31/mianshi/"/>
     <id>http://yoursite.com/2017/03/31/mianshi/</id>
     <published>2017-03-31T14:47:18.895Z</published>
-    <updated>2017-04-13T08:06:26.888Z</updated>
+    <updated>2017-04-28T02:40:01.580Z</updated>
     
     <content type="html"><![CDATA[<h3 id="2017年3月面试题"><a href="#2017年3月面试题" class="headerlink" title="2017年3月面试题"></a>2017年3月面试题</h3><ol>
 <li>0.1 + 0.2 = 0.300000000000000004</li>
 <li>var let const之间的的区别</li>
 <li>flex布局</li>
-<li>ajax请求</li>
+<li>ajax请求<a id="more"></a></li>
 <li>32432.34234&gt;&gt;0  省去小数点之后的</li>
 <li>343.324.fixTo(2)  –&gt;保留两位小数</li>
 <li>flex 布局 开启flex  子元素flex：1；快速设置</li>
@@ -114,7 +114,10 @@
     <summary type="html">
     
       &lt;h3 id=&quot;2017年3月面试题&quot;&gt;&lt;a href=&quot;#2017年3月面试题&quot; class=&quot;headerlink&quot; title=&quot;2017年3月面试题&quot;&gt;&lt;/a&gt;2017年3月面试题&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;0.1 + 0.2 = 0.300000000000000004
+&lt;li&gt;0.1 + 0.2 = 0.300000000000000004&lt;/li&gt;
+&lt;li&gt;var let const之间的的区别&lt;/li&gt;
+&lt;li&gt;flex布局&lt;/li&gt;
+&lt;li&gt;ajax请求
     
     </summary>
     
